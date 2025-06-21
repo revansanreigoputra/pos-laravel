@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SupplierController;
@@ -49,6 +50,16 @@ Route::middleware('auth')->group(function () {
         Route::middleware('permission:unit.store')->post('/', [UnitController::class, 'store'])->name('unit.store');
         Route::middleware('permission:unit.update')->put('/{unit}', [UnitController::class, 'update'])->name('unit.update');
         Route::middleware('permission:unit.delete')->delete('/{unit}', [UnitController::class, 'destroy'])->name('unit.destroy');
+    });
+
+    Route::prefix('produk')->group(function () {
+        Route::middleware('permission:product.view')->get('/', [ProductController::class, 'index'])->name('product.index');
+        Route::middleware('permission:product.create')->get('/create', [ProductController::class, 'create'])->name('product.create');
+        Route::middleware('permission:product.store')->post('/', [ProductController::class, 'store'])->name('product.store');
+        Route::middleware('permission:product.view')->get('/{product}', [ProductController::class, 'show'])->name('product.show');
+        Route::middleware('permission:product.update')->get('/{product}/edit', [ProductController::class, 'edit'])->name('product.edit');
+        Route::middleware('permission:product.update')->put('/{product}', [ProductController::class, 'update'])->name('product.update');
+        Route::middleware('permission:product.delete')->delete('/{product}', [ProductController::class, 'destroy'])->name('product.destroy');
     });
 
     Route::prefix('user')->group(function () {

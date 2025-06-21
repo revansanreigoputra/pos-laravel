@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li
-                    class="nav-item dropdown {{ request()->is('roles*') || request()->is('kategori*') || request()->is('supplier*') || request()->is('konsumen*') || request()->is('satuan*') || request()->is('user*') ? 'active' : '' }}">
+                    class="nav-item dropdown {{ request()->is('roles*') || request()->is('kategori*') || request()->is('supplier*') || request()->is('konsumen*') || request()->is('satuan*') || request()->is('produk*') || request()->is('user*') ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button" aria-expanded="false">
                         <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -48,14 +48,17 @@
                         <span class="nav-link-title"> Master Data </span>
                     </a>
                     <div
-                        class="dropdown-menu {{ request()->is('roles*') || request()->is('kategori*') || request()->is('supplier*') || request()->is('konsumen*') || request()->is('satuan*') || request()->is('user*') ? 'show' : '' }}">
+                        class="dropdown-menu {{ request()->is('roles*') || request()->is('kategori*') || request()->is('supplier*') || request()->is('konsumen*') || request()->is('satuan*') || request()->is('produk*') || request()->is('user*') ? 'show' : '' }}">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
                                 @can('category.view')
                                 <a class="dropdown-item {{ request()->is('kategori*') ? 'active' : '' }}"
                                     href="{{ route('category.index') }}"> Kategori </a>
                                 @endcan
-                                <a class="dropdown-item" href="./markdown.html"> Produk </a>
+                                @can('product.view')
+                                <a class="dropdown-item {{ request()->is('produk*') ? 'active' : '' }}"
+                                    href="{{ route('product.index') }}"> Produk </a>
+                                @endcan
                                 @can('user.view')
                                 <a class="dropdown-item {{ request()->is('user*') ? 'active' : '' }}"
                                     href="{{ route('user.index') }}"> User </a>

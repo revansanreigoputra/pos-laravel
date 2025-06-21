@@ -6,10 +6,12 @@ use App\Repositories\CategoryRepository;
 use App\Repositories\CustomerRepository;
 use App\Repositories\Interface\CategoryRepositoryInterface;
 use App\Repositories\Interface\CustomerRepositoryInterface;
+use App\Repositories\Interface\ProductRepositoryInterface;
 use App\Repositories\Interface\RoleRepositoryInterface;
 use App\Repositories\Interface\SupplierRepositoryInterface;
 use App\Repositories\Interface\UnitRepositoryInterface;
 use App\Repositories\Interface\UserRepositoryInterface;
+use App\Repositories\ProductRepository;
 use App\Repositories\RoleRepository;
 use App\Repositories\SupplierRepository;
 use App\Repositories\UnitRepository;
@@ -18,10 +20,12 @@ use App\Services\CategoryService;
 use App\Services\CustomerService;
 use App\Services\Interface\CategoryServiceInterface;
 use App\Services\Interface\CustomerServiceInterface;
+use App\Services\Interface\ProductServiceInterface;
 use App\Services\Interface\RoleServiceInterface;
 use App\Services\Interface\SupplierServiceInterface;
 use App\Services\Interface\UnitServiceInterface;
 use App\Services\Interface\UserServiceInterface;
+use App\Services\ProductService;
 use App\Services\RoleService;
 use App\Services\SupplierService;
 use App\Services\UnitService;
@@ -46,6 +50,8 @@ class AppServiceProvider extends ServiceProvider
             CustomerRepositoryInterface::class => CustomerRepository::class,
             UnitServiceInterface::class => UnitService::class,
             UnitRepositoryInterface::class => UnitRepository::class,
+            ProductServiceInterface::class => ProductService::class,
+            ProductRepositoryInterface::class => ProductRepository::class,
             UserServiceInterface::class => UserService::class,
             UserRepositoryInterface::class => UserRepository::class,
         ];
