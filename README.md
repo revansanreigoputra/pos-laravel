@@ -14,6 +14,7 @@ POS web application dengan Laravel + Autentikasi + Role-based Access (Admin & Ka
 -   CRUD Supplier
 -   CRUD Konsumen
 -   CRUD Satuan
+-   CRUD Produk
 -   CRUD User
 
 ---
@@ -114,7 +115,7 @@ Seeder akan otomatis:
 
 -   [ ] Pengaturan Website
 -   [x] Manajemen Satuan
--   [ ] Manajemen Produk
+-   [x] Manajemen Produk
 -   [x] Manajemen Konsumen
 -   [ ] Manajemen Stok
 -   [ ] Transaksi Pembelian (Supplier)
