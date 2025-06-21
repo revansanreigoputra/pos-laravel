@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\UnitController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,13 @@ Route::middleware('auth')->group(function () {
         Route::middleware('permission:customer.store')->post('/', [CustomerController::class, 'store'])->name('customer.store');
         Route::middleware('permission:customer.update')->put('/{customer}', [CustomerController::class, 'update'])->name('customer.update');
         Route::middleware('permission:customer.delete')->delete('/{customer}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+    });
+
+    Route::prefix('satuan')->group(function () {
+        Route::middleware('permission:unit.view')->get('/', [UnitController::class, 'index'])->name('unit.index');
+        Route::middleware('permission:unit.store')->post('/', [UnitController::class, 'store'])->name('unit.store');
+        Route::middleware('permission:unit.update')->put('/{unit}', [UnitController::class, 'update'])->name('unit.update');
+        Route::middleware('permission:unit.delete')->delete('/{unit}', [UnitController::class, 'destroy'])->name('unit.destroy');
     });
 
     Route::prefix('user')->group(function () {

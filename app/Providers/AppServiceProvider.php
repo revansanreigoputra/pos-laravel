@@ -8,9 +8,11 @@ use App\Repositories\Interface\CategoryRepositoryInterface;
 use App\Repositories\Interface\CustomerRepositoryInterface;
 use App\Repositories\Interface\RoleRepositoryInterface;
 use App\Repositories\Interface\SupplierRepositoryInterface;
+use App\Repositories\Interface\UnitRepositoryInterface;
 use App\Repositories\Interface\UserRepositoryInterface;
 use App\Repositories\RoleRepository;
 use App\Repositories\SupplierRepository;
+use App\Repositories\UnitRepository;
 use App\Repositories\UserRepository;
 use App\Services\CategoryService;
 use App\Services\CustomerService;
@@ -18,9 +20,11 @@ use App\Services\Interface\CategoryServiceInterface;
 use App\Services\Interface\CustomerServiceInterface;
 use App\Services\Interface\RoleServiceInterface;
 use App\Services\Interface\SupplierServiceInterface;
+use App\Services\Interface\UnitServiceInterface;
 use App\Services\Interface\UserServiceInterface;
 use App\Services\RoleService;
 use App\Services\SupplierService;
+use App\Services\UnitService;
 use App\Services\UserService;
 use Illuminate\Support\ServiceProvider;
 
@@ -40,6 +44,8 @@ class AppServiceProvider extends ServiceProvider
             SupplierRepositoryInterface::class => SupplierRepository::class,
             CustomerServiceInterface::class => CustomerService::class,
             CustomerRepositoryInterface::class => CustomerRepository::class,
+            UnitServiceInterface::class => UnitService::class,
+            UnitRepositoryInterface::class => UnitRepository::class,
             UserServiceInterface::class => UserService::class,
             UserRepositoryInterface::class => UserRepository::class,
         ];
